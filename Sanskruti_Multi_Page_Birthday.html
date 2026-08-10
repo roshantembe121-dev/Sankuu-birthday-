@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sanskruti 💗</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font-family:Georgia,serif;background:radial-gradient(circle at 50% 20%,#4c1745,#160b23 55%,#080713);color:#fff}
+.page{display:none;height:100vh;width:100%;align-items:center;justify-content:center;padding:24px;position:relative}
+.page.active{display:flex;animation:fade .7s ease}
+@keyframes fade{from{opacity:0;transform:translateX(25px)}to{opacity:1;transform:none}}
+.card{width:min(92vw,430px);max-height:90vh;overflow:auto;text-align:center;background:linear-gradient(145deg,#fff8f6,#ffeaf3);color:#513442;border-radius:30px;padding:28px 22px;box-shadow:0 25px 70px #0008}
+h1{font-size:29px;color:#a73e74;margin:10px 0 16px}.sub{color:#8c6878;line-height:1.6}
+.big{font-size:65px;margin:8px}.name{color:#d04d8b}
+.message{background:#fffdf9;border:1px solid #ead7df;border-radius:18px;padding:20px;line-height:1.7;text-align:left;box-shadow:0 5px 15px #7d466015}
+button{border:0;border-radius:28px;padding:13px 26px;background:#df659b;color:#fff;font-size:16px;margin-top:20px;box-shadow:0 8px 20px #df659b55}
+.dots{position:fixed;top:18px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:5}.dot{width:8px;height:8px;border-radius:50%;background:#ffffff55}.dot.on{background:#ff9cc8;width:22px;border-radius:8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.reason{background:#fff;border-radius:16px;padding:14px;color:#714b5e}
+.photo{height:160px;border-radius:18px;background:linear-gradient(135deg,#ffc1dc,#f9e4ed);display:flex;align-items:center;justify-content:center;font-size:48px;margin-bottom:15px}
+.float{position:fixed;bottom:-40px;font-size:24px;animation:up 7s linear infinite;opacity:.7;z-index:0}
+@keyframes up{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}
+</style>
+</head>
+<body>
+<div class="dots" id="dots"></div>
+<div class="float" style="left:8%;animation-delay:0s">💗</div>
+<div class="float" style="left:27%;animation-delay:2s">✨</div>
+<div class="float" style="left:52%;animation-delay:4s">💕</div>
+<div class="float" style="left:78%;animation-delay:1s">🎀</div>
+
+<section class="page active"><div class="card">
+<div class="big">🎀</div><h1>Hey <span class="name">Sanskruti</span>...</h1>
+<p class="sub">Someone very special has a birthday today. ❤️<br>And this little surprise is just for you.</p>
+<button onclick="next()">Open Your Surprise ✨</button>
+</div></section>
+
+<section class="page"><div class="card">
+<div class="big">🎂</div><h1>Happy Birthday! 🥳</h1>
+<p class="sub">Today is all about celebrating the beautiful person you are.</p>
+<p style="font-size:21px">Happy Birthday, <b class="name">Sanskruti</b>! 💗</p>
+<button onclick="next()">There’s More →</button>
+</div></section>
+
+<section class="page"><div class="card">
+<h1>A Message From My Heart 💌</h1>
+<div class="message">
+Dear Sanskruti,<br><br>
+Happy Birthday to someone truly special! 🎂<br><br>
+You are not just my best friend, but one of the sweetest and most precious people in my life. I’m genuinely grateful for every laugh, every conversation and every little memory we’ve shared. 💕<br><br>
+May your life always be filled with happiness, love, success and countless reasons to smile. ✨
+</div><button onclick="next()">Next 💗</button>
+</div></section>
+
+<section class="page"><div class="card">
+<h1>Why You’re Special 🥰</h1>
+<div class="grid">
+<div class="reason">💗 Always caring</div><div class="reason">😂 Always fun</div>
+<div class="reason">✨ Beautiful soul</div><div class="reason">🤝 Always there</div>
+<div class="reason">🌸 Sweet heart</div><div class="reason">👑 One of a kind</div>
+</div><button onclick="next()">One More →</button>
+</div></section>
+
+<section class="page"><div class="card">
+<h1>Our Memories 📸</h1>
+<div class="photo">📷</div>
+<p class="sub">This space can be filled with your favourite photos and memories together. 💕</p>
+<button onclick="next()">Keep Going ✨</button>
+</div></section>
+
+<section class="page"><div class="card">
+<div class="big">🌷</div><h1>My Wish For You</h1>
+<div class="message">
+May this new year of your life bring you closer to every dream you have. ✨<br><br>
+May you laugh more, worry less, travel more, create beautiful memories and always stay the amazing person you are. 💕
+</div><button onclick="next()">Final Surprise 🎁</button>
+</div></section>
+
+<section class="page"><div class="card">
+<div class="big">🎁</div><h1>Happy Birthday<br><span class="name">Sanskruti ❤️</span></h1>
+<p class="sub">Keep smiling. Keep shining. And never change the beautiful person you are. ✨</p>
+<p style="font-size:20px">With lots of love & best wishes,<br><b>Your Best Friend 💗</b></p>
+<button onclick="restart()">↻ See Again</button>
+</div></section>
+
+<script>
+let i=0,pages=document.querySelectorAll('.page'),dots=document.getElementById('dots');
+pages.forEach((_,n)=>{let d=document.createElement('span');d.className='dot'+(n===0?' on':'');dots.appendChild(d)});
+function render(){pages.forEach((p,n)=>p.classList.toggle('active',n===i));[...dots.children].forEach((d,n)=>d.classList.toggle('on',n===i))}
+function next(){if(i<pages.length-1)i++;render()}
+function restart(){i=0;render()}
+</script>
+</body></html>
